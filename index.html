@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Un mensaje especial de San Valentín para ti">
+    <meta name="theme-color" content="#ff3366">
+    <title>Un Mensaje para Ti ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .start-button {
+            padding: clamp(15px, 4vw, 20px) clamp(30px, 6vw, 40px);
+            font-size: clamp(18px, 4vw, 24px);
+            background: #A020F0;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+            position: relative;
+            z-index: 100;
+            white-space: nowrap;
+        }
+
+        .start-button:hover,
+        .start-button:focus {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 51, 102, 0.8);
+            outline: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .message {
+            position: absolute;
+            color: white;
+            font-size: clamp(1.5em, 5vw, 2em);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.8);
+            padding: 0 20px;
+            width: 100%;
+            max-width: 600px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: explode 1s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(clamp(20, 5vw, 30));
+                opacity: 0;
+            }
+        }
+
+        .final-message {
+            position: absolute;
+            background: rgba(#A020F0);
+            padding: clamp(20px, 5vw, 30px);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 1s;
+            box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+            margin: 0 auto;
+        }
+
+        .final-message h1 {
+            color: #ff3366;
+            margin-bottom: 20px;
+            font-size: clamp(1.5em, 5vw, 2em);
+        }
+
+        .final-message p {
+            color: white;
+            font-size: clamp(1em, 3vw, 1.2em);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .light-beam {
+            position: absolute;
+            width: 4px;
+            height: 0;
+            background: rgba(255, 255, 255, 0.6);
+            transform-origin: top;
+            animation: beam 2s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes beam {
+            0% {
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                height: 100vh;
+                opacity: 0;
+            }
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: clamp(30px, 8vw, 40px);
+            opacity: 0;
+            animation: float 4s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .message {
+                font-size: 1.2em;
+            }
+            
+            .final-message {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop><source src="sound/flawers.mp3" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+    <button class="start-button" onclick="startSurprise()">Click para un mensaje especial ✨</button>
+
+    <div id="finalMessage" class="final-message hidden">
+        <h1>✨ ¡Eres Especial! ❤️</h1>
+        <p>
+            En la vida las cosas suceden por una razón. Vamos a verle el lado positivo a lo que está sucediendo para aprender de esta experiencia y seguir adelante.
+        </p>
+        <p>
+            Mereces todo el amor del mundo, ¡empezando por el amor propio! 🌟
+        </p>
+        <p>
+            ¡Feliz 21 de Marzo! 🌻
+        </p>
+        <button class="start-button">
+            <a href="flores.html" style="color: #fff;">CLICK AQUÍ</a>
+        </button>
+
+    </div>
+    <script src="musica.js"></script>
+    <script src="script.js"></script> 
+</body>
+</html>
